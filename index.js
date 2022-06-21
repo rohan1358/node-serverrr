@@ -8,8 +8,8 @@ const cors = require("cors");
 const BASE_URL = "https://news-restaurant-api-production.azure-api.net/api";
 
 app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: "25mb" }));
+app.use(bodyParser.urlencoded({ extended: true, limit: "25mb" }));
 
 app.get("*", (req, res) => {
   const headers = {};
